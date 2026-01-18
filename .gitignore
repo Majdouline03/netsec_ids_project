@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.idea/
+.DS_Store
+.ipynb_checkpoints/
+data/raw_pcaps/*.pcap
+data/raw_pcaps/*.pcapng
+results/
+*.log
