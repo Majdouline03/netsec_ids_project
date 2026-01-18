@@ -65,3 +65,14 @@ def syn_ack_counts(df: pd.DataFrame, window_seconds: int = 1) -> pd.DataFrame:
         .reset_index()
     )
     return out
+
+def unique_dst_ports_per_pair(df: pd.DataFrame, window_seconds: int = 10) -> pd.DataFrame:
+    dfw = add_time_window(df, window_seconds)
+    dfw = dfw[dfw["dst_port"].notna() & dfw["src_ip"].notna() & dfw["dst_ip"].notna()].copy()
+
+    out = (
+        dfw.groupby(["window_start", "src_ip", "dst_ip"])["dst_port"]
+        .nunique()
+        .reset_index(name="unique_dst_ports")
+    )
+    return out

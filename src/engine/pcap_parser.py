@@ -1,5 +1,22 @@
-import pyshark
+import pyshark #Expaction Wireshark/tshark is already installed
 
+"""
+This function take the takes a PCAP and turns it into a list of dictionaries, 
+where each dict = one packet with a few fields the IDS rules can use.
+
+Exemple:
+{
+  "timestamp": ...,
+  "src_ip": ...,
+  "dst_ip": ...,
+  "protocol": ...,
+  "src_port": ...,
+  "dst_port": ...,
+  "tcp_flags": ...,
+  "length": ...
+}
+
+"""
 
 def parse_pcap(pcap_path: str, max_packets: int = 0):
     """
@@ -7,13 +24,15 @@ def parse_pcap(pcap_path: str, max_packets: int = 0):
 
     Args:
         pcap_path: Path to the PCAP file.
-        max_packets: If > 0, limits number of packets (useful for quick tests).
+        max_packets: If > 0, limits number of packets (in case we want just to test) and 0 means no limit.
 
     Returns:
         List[dict]: One dict per packet.
     """
-    packets_data = []
+    packets_data = [] #This will hold all packet dictionaries
 
+    #FileCapture : reads packets
+    #keep_packets= False means don't store every packet object in memory
     capture = pyshark.FileCapture(pcap_path, keep_packets=False)
 
     for i, packet in enumerate(capture):
@@ -21,7 +40,8 @@ def parse_pcap(pcap_path: str, max_packets: int = 0):
             break
 
         try:
-            ts = packet.sniff_time
+            #Timestamp of when the packet was captured, we can say it's datatime in Python
+            timestamp = packet.sniff_time
 
             # IP addresses (IPv4)
             src_ip = packet.ip.src if hasattr(packet, "ip") else None
@@ -30,9 +50,9 @@ def parse_pcap(pcap_path: str, max_packets: int = 0):
             # Basic protocol guess
             proto = None
             if hasattr(packet, "transport_layer") and packet.transport_layer:
-                proto = packet.transport_layer  # TCP/UDP
+                proto = packet.transport_layer  # TCP or UDP
             elif hasattr(packet, "highest_layer"):
-                proto = packet.highest_layer  # e.g., ARP, ICMP, DNS, etc.
+                proto = packet.highest_layer  # ARP, ICMP, DNS, etc...
 
             # Ports (TCP/UDP)
             src_port = None
@@ -55,7 +75,7 @@ def parse_pcap(pcap_path: str, max_packets: int = 0):
                 length = int(packet.length)
 
             packets_data.append({
-                "timestamp": ts,
+                "timestamp": timestamp,
                 "src_ip": src_ip,
                 "dst_ip": dst_ip,
                 "protocol": proto,
@@ -66,7 +86,7 @@ def parse_pcap(pcap_path: str, max_packets: int = 0):
             })
 
         except Exception:
-            # Skip packets we cannot parse
+            # Skip packets we cannot parse - Error case
             continue
 
     capture.close()
