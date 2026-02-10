@@ -1,0 +1,12 @@
+timestamp_start,timestamp_end,src_ip,dst_ip,dst_port,protocol,rule_name,severity,reason,pkt_count
+2017-07-05 14:44:26,2017-07-05 14:44:27,192.168.10.16,172.217.12.161,,ANY,PACKET_FLOOD,LOW,High packet rate: 30 packets within 1s window (possible flooding),30
+2017-07-05 14:48:46,2017-07-05 14:48:47,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,HIGH,High packet rate: 158 packets within 1s window (possible flooding),158
+2017-07-05 14:48:54,2017-07-05 14:48:55,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,HIGH,High packet rate: 157 packets within 1s window (possible flooding),157
+2017-07-05 14:48:55,2017-07-05 14:48:56,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 21 packets within 1s window (possible flooding),21
+2017-07-05 14:48:57,2017-07-05 14:48:58,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 21 packets within 1s window (possible flooding),21
+2017-07-05 14:48:59,2017-07-05 14:49:00,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 20 packets within 1s window (possible flooding),20
+2017-07-05 14:49:04,2017-07-05 14:49:05,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 20 packets within 1s window (possible flooding),20
+2017-07-05 14:49:09,2017-07-05 14:49:10,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 33 packets within 1s window (possible flooding),33
+2017-07-05 14:49:10,2017-07-05 14:49:11,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,MEDIUM,High packet rate: 49 packets within 1s window (possible flooding),49
+2017-07-05 14:49:11,2017-07-05 14:49:12,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,LOW,High packet rate: 36 packets within 1s window (possible flooding),36
+2017-07-05 14:49:12,2017-07-05 14:49:13,172.16.0.1,192.168.10.50,,ANY,PACKET_FLOOD,MEDIUM,High packet rate: 50 packets within 1s window (possible flooding),50

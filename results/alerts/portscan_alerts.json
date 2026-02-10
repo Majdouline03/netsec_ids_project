@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp_start":"2017-07-07T14:12:20.000",
+    "timestamp_end":"2017-07-07T14:12:30.000",
+    "src_ip":"192.168.10.51",
+    "dst_ip":"185.170.48.239",
+    "dst_port":null,
+    "protocol":"TCP\/UDP",
+    "rule_name":"PORT_SCAN",
+    "severity":"MEDIUM",
+    "reason":"Source contacted 16 unique destination ports within 10s window",
+    "unique_dst_ports":16
+  },
+  {
+    "timestamp_start":"2017-07-07T14:12:30.000",
+    "timestamp_end":"2017-07-07T14:12:40.000",
+    "src_ip":"192.168.10.51",
+    "dst_ip":"185.170.48.239",
+    "dst_port":null,
+    "protocol":"TCP\/UDP",
+    "rule_name":"PORT_SCAN",
+    "severity":"MEDIUM",
+    "reason":"Source contacted 16 unique destination ports within 10s window",
+    "unique_dst_ports":16
+  },
+  {
+    "timestamp_start":"2017-07-07T14:12:40.000",
+    "timestamp_end":"2017-07-07T14:12:50.000",
+    "src_ip":"192.168.10.51",
+    "dst_ip":"185.170.48.239",
+    "dst_port":null,
+    "protocol":"TCP\/UDP",
+    "rule_name":"PORT_SCAN",
+    "severity":"LOW",
+    "reason":"Source contacted 11 unique destination ports within 10s window",
+    "unique_dst_ports":11
+  }
+]
