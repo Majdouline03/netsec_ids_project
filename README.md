@@ -65,29 +65,6 @@ The IDS detects the following types of suspicious behaviors:
 
 Each detection rule produces alerts with an explanation and a severity level (Low, Medium, High).
 
-
-## Project Structure
-
-netsec-ids/
-├── data/
-│ ├── raw_pcaps/ # PCAP files (not tracked)
-│ └── labels/ # Dataset labels for evaluation
-│
-├── results/
-│ ├── alerts/ # IDS alerts output
-│ ├── reports/ # Summary reports
-│ └── logs/ # Execution logs
-│
-├── src/
-│ ├── engine/ # IDS core (parsing, detection, severity)
-│ ├── ui/ # Streamlit dashboard
-│ └── evaluation/ # Benchmarking and metrics
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-
-
 ---
 
 ## Technologies Used
@@ -99,26 +76,5 @@ netsec-ids/
 - **Matplotlib / Plotly** for visualization
 - **Git & GitHub** for version control
 
----
 
-## Collaboration and Version Control
-
-The project is developed collaboratively using Git with a clear division of responsibilities:
-
-- `engine` branch: IDS core logic and detection rules  
-- `ui-eval` branch: User interface and evaluation modules  
-- `main` branch: Stable, integrated version  
-
-This structure ensures modular development and avoids conflicts.
-
----
-
-## Limitations
-
-- The IDS operates only on offline traffic  
-- Detection is rule-based and does not use machine learning  
-- Encrypted payloads are not inspected  
-- Some application-layer attacks are outside the scope of detection  
-
-These limitations are consistent with the educational scope of the project.
 
